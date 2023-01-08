@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container px-5  mx-auto">
+    <div class="flex flex-wrap">
+      <div class="  flex flex-col items-start">
+        <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">CATEGORY</span>
+        <h2 class="sm:text-3xl text-2xl title-font font-medium text-white-900 mt-4 mb-4">{{ article.title }}</h2>
+        <p class="leading-relaxed mb-8">{{ article.body }}</p>
+        <span class="flex-grow flex flex-col pl-4">
+            <span class="title-font font-medium text-white-900">{{ article.date }}</span>
+            <span class="text-gray-400 text-xs tracking-widest mt-0.5">UI DEVELOPER</span>
+          </span>
+      </div>
+    </div>
+</div>
+{% endblock %}
