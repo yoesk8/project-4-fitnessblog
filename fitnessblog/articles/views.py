@@ -22,6 +22,7 @@ def article_create(request):
         if form.is_valid():
             # save article to database
             instance = form.save(commit=False)
+            # set the author field to the loggged in user
             instance.author = request.user
             instance.save()
             return redirect('articles:list')
