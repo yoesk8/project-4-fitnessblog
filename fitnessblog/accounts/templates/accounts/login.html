@@ -1,14 +1,17 @@
 {% extends 'base.html' %}
+{% load tailwind_filters %}
 
 {% block content %}
-<h1>Log in</h1>
+<div class="max-w-lg mx-auto">
+    <h1>Log in</h1>
 <form action="{% url 'accounts:login' %}" method="post">
     {% csrf_token %}
-    {{ form }}
+    {{ form|crispy }}
     {% if request.GET.next %}
     <input type="hidden" name="next" value="{{ request.GET.next }}">
     {% endif %}
     <input type="submit" value="Login">
 </form>
+</div>
 
 {% endblock %}

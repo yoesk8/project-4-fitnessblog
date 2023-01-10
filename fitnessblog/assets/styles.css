@@ -1,20 +1,26 @@
-body{
-    background-color: #0f121f;
-    background-image: url(stars.png);
-    background-repeat-y: no-repeat;
-    color: #fff;
+
+
+.logo-img {
+    margin-left: 5%;
+    width: 20%;
+    height: 20%;
 }
 
-body *{
-    font-family: Ubuntu;
+.header-class {
+    margin-bottom: 5%;
+    position: sticky;
+    top: 0;
+    z-index: 999;
 }
 
-h1, h2, h3, h4, h5{
-    font-weight: normal;
-    margin: 0;
+.footer-class {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+
 }
 
-a, a:hover, a:visited{
-    color: #fff;
-    text-decoration: none;
+.article-container{
+    margin-bottom: 10%;
+    margin-top: 5%;
 }
