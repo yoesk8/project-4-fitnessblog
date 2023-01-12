@@ -3,6 +3,12 @@ from django.contrib.auth.models import User
 
 
 class Article(models.Model):
+    CATEGORY_CHOICES = (
+        ('Training', 'Training'),
+        ('Nutrition', 'Nutrition'),
+        ('Other', 'Other'),
+    )
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     title = models.CharField(max_length=100)
     slug = models.SlugField()
     body = models.TextField()

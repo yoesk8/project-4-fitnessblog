@@ -9,5 +9,6 @@ class CreateArticle(forms.ModelForm):
             'title',
             'body',
             'slug',
-            'thumb'
+            'thumb',
+            'category'
         ]
