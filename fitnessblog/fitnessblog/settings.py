@@ -137,7 +137,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-yoesk8-project4fitnessb-n0996w69h5g.ws-eu81.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-yoesk8-project4fitnessb-n0996w69h5g.ws-eu82.gitpod.io']
 
 CRISPY_TEMPLATE_PACK = 'tailwind'
 CRISPY_ALLOWED_TEMPLATE_PACKS = 'tailwind'
