@@ -26,7 +26,7 @@ class Article(models.Model):
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     date = models.DateField(auto_now_add=True)
-    post = models.ForeignKey('Article', on_delete=models.CASCADE)
+    post = models.ForeignKey('Article', related_name='comments', on_delete=models.CASCADE)
     content = models.TextField()
 
     def __str__(self):
