@@ -12,7 +12,8 @@ def article_list(request):
 
 def article_detail(request, slug):
     article = Article.objects.get(slug=slug)
-    return render(request, 'articles/article_detail.html', {'article': article})
+    commentform = forms.CreateComment
+    return render(request, 'articles/article_detail.html', {'article': article, 'commentform': commentform})
 
 
 @login_required()

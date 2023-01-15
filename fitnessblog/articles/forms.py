@@ -40,3 +40,9 @@ class CreateArticle(forms.ModelForm):
                 }),
 
         }
+
+
+class CreateComment(forms.ModelForm):
+    class Meta:
+        model = models.Comment
+        fields = ['content']
