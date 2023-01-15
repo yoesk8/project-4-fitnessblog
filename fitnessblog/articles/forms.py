@@ -42,7 +42,16 @@ class CreateArticle(forms.ModelForm):
         }
 
 
-class CreateComment(forms.ModelForm):
+class CommentForm(forms.ModelForm):
     class Meta:
         model = models.Comment
-        fields = ['content']
+        fields = [
+            'content'
+        ]
+        widgets = {
+            'content': Textarea(attrs={
+                'class': "form-control",
+                'style': 'max-width: 800px;',
+                'placeholder': 'Your awesome comment here'
+                }),
+        }

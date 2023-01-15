@@ -27,12 +27,16 @@
                 <hr>
                 <h3>Add your comment:</h3>
                 {% if user.is_authenticated and not article.comments.all %}
-                 <p>No comments yet...</p>
+                 <p>No comments yet... Why not be the first?</p>
+                 <a href="{% url 'articles:add_comment' slug=article.slug %}">Add comment: </a>
                  {% elif user.is_authenticated  %}
                  <a href="{% url 'articles:add_comment' slug=article.slug %}">Add comment: </a>
                  {% else %}
                  <p>You need to be logged in to comment...</p>
                  {% endif %}
+                 <hr>
+                 <h3><a href="{% url 'articles:list' %}"> Back to Home Page </a></h3>
+
                 
               </div>
             </div>

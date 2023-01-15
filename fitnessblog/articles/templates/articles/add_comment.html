@@ -9,7 +9,7 @@
 {% block content %}
 <div class="max-w-lg mx-auto">
     <h2>Add your comment:</h2>
-    <form action="{% url 'articles:create' %}" method="post" >
+    <form method="post" >
         {% csrf_token %}
         {{ form }}
         <button class="btn btn-secondary mt-3" type="submit">Add comment</button>
