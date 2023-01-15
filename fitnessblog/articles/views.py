@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from .models import Article
+from .models import Article, Comment
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
+from django.views.generic.edit import CreateView
 from . import forms
 
 
@@ -30,3 +31,9 @@ def article_create(request):
     else:
         form = forms.CreateArticle()
     return render(request, 'articles/article_create.html', {'form': form})
+
+
+class AddCommentView(CreateView):
+    model = Comment
+    template_name = 'articles/add_comment.html'
+    fields = '__all__'

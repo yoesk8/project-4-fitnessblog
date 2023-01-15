@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+<div class="max-w-lg mx-auto">
+    <h2>Add your comment:</h2>
+    <form action="{% url 'articles:create' %}" method="post" >
+        {% csrf_token %}
+        {{ form }}
+        <button class="btn btn-secondary mt-3" type="submit">Add comment</button>
+    </form>
+</div>
+{% endblock %}
