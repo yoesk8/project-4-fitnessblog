@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% bootstrap_messages %}
+
+{% block content %}
+<div class="max-w-lg mx-auto">
+    <h1>Log in</h1>
+<form action="{% url 'accounts:login' %}" method="post">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    {% if request.GET.next %}
+    <input type="hidden" name="next" value="{{ request.GET.next }}">
+    {% endif %}
+    <button class="btn btn-secondary mt-3" type="submit" >Login</button>
+</form>
+</div>
+
+{% endblock %}
