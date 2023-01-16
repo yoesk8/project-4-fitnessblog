@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-@pna6^h%52df@)^pw^sh7no(@p59g0^)wo)d8&a@sk%o3$$6iy'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['https://git.heroku.com/fitnessblog.git', 'localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
