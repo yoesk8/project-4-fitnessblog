@@ -15,7 +15,13 @@ def article_list(request):
 def article_detail(request, slug):
     article = Article.objects.get(slug=slug)
     total_likes = article.total_likes()
-    return render(request, 'articles/article_detail.html', {'article': article, 'total_likes': total_likes})
+# In order to pass the liked to the frontend set it to false if the user has liked this article already
+    liked = False
+    if article.likes.filter(id=request.user.id).exists():
+        liked = True
+    return render(request, 'articles/article_detail.html', {'article': article,
+                                                            'total_likes': total_likes,
+                                                            'liked': liked})
 
 
 @login_required()
@@ -36,9 +42,14 @@ def article_create(request):
 
 def LikeView(request, slug):
     post = get_object_or_404(Article, id=request.POST.get('article_id'))
-    post.likes.add(request.user)
+    liked = False
+    if post.likes.filter(id=request.user.id).exists():
+        post.likes.remove(request.user)
+        liked = False
+    else:
+        post.likes.add(request.user)
+        liked = True
     return HttpResponseRedirect(reverse('articles:detail', args=[str(slug)]))
-    # return reverse_lazy('articles:detail', kwargs={'slug': self.kwargs['slug']})
 
 
 class AddCommentView(CreateView):
