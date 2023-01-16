@@ -14,7 +14,11 @@ class Article(models.Model):
     category = models.CharField(max_length=20, choices=CATEGORY_CHOICES)
     date = models.DateTimeField(auto_now_add=True)
     thumb = models.ImageField(default='default.png', blank=True)
+    likes = models.ManyToManyField(User, related_name='blog_posts')
     author = models.ForeignKey(User, default=None, on_delete=models.CASCADE)
+
+    def total_likes(self):
+        return self.likes.count()
 
     def __str__(self):
         return self.title

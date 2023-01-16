@@ -1,7 +1,7 @@
-from django.shortcuts import render, redirect
-from django.urls import reverse_lazy
+from django.shortcuts import render, redirect, get_object_or_404
+from django.urls import reverse_lazy, reverse
 from .models import Article, Comment
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
 from . import forms
@@ -14,7 +14,8 @@ def article_list(request):
 
 def article_detail(request, slug):
     article = Article.objects.get(slug=slug)
-    return render(request, 'articles/article_detail.html', {'article': article})
+    total_likes = article.total_likes()
+    return render(request, 'articles/article_detail.html', {'article': article, 'total_likes': total_likes})
 
 
 @login_required()
@@ -31,6 +32,13 @@ def article_create(request):
     else:
         form = forms.CreateArticle()
     return render(request, 'articles/article_create.html', {'form': form})
+
+
+def LikeView(request, slug):
+    post = get_object_or_404(Article, id=request.POST.get('article_id'))
+    post.likes.add(request.user)
+    return HttpResponseRedirect(reverse('articles:detail', args=[str(slug)]))
+    # return reverse_lazy('articles:detail', kwargs={'slug': self.kwargs['slug']})
 
 
 class AddCommentView(CreateView):

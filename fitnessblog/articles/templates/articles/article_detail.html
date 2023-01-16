@@ -19,7 +19,12 @@
             <div class="row mt-3">
               <div class="col-10">
                  <br>
-                 <h3>Comments:</h3>
+                 <h3> <i class="fa fa-solid fa-thumbs-up"></i> Likes: {{ total_likes }}</h3>
+                 <form action="{% url 'articles:like_post' slug=article.slug %}" method="post">
+                  {% csrf_token %}
+                  <button type="submit" name="article_id" value="{{ article.id }}" class="btn btn-primary btn-sm">Like</button>
+                 </form>
+                 <h3> <i class="fa fa-solid fa-comment"></i> Comments:</h3>
                   {% for comment in article.comments.all %}
                 <p class="leading-relaxed mb-8"><strong>{{ comment.user }}</strong></p>
                 <p class="leading-relaxed mb-8">{{ comment.date }}</p>
