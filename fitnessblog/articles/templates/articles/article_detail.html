@@ -19,7 +19,7 @@
             <div class="row mt-3">
               <div class="col-10">
                  <br>
-                 <h3> Likes: {{ total_likes }}</h3>
+                 <h3><i class="fa fa-solid fa-heart"></i> Likes: {{ total_likes }}</h3>
                  <form action="{% url 'articles:like_post' slug=article.slug %}" method="post">
                   {% csrf_token %}
                   {% if user.is_authenticated %}

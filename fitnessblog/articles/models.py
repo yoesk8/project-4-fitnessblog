@@ -24,7 +24,7 @@ class Article(models.Model):
         return self.title
 
     def snippet(self):
-        return self.body[:50] + "..."
+        return self.body[:150] + "..."
 
 
 class Comment(models.Model):
