@@ -23,7 +23,13 @@
     <div class="col-4 d-none d-lg-block">  <img class="img-fluid" src="{{ article.thumb.url }}" alt="post image">
     </div>
     <div class="col-8">
-      <p class="card-text">{{ article.category }}</p>
+      {% if article.category == 'Training' %}
+      <p class="card-text text-primary">{{ article.category }}</p>
+      {% elif article.category == 'Nutrition' %}
+      <p class="card-text text-secondary">{{ article.category }}</p>
+      {% else %}
+      <p class="card-text text-success">{{ article.category }}</p>
+      {% endif %}
       <h5 class="card-title">{{ article.title }}</h5>
       <p class="card-text">{{ article.snippet }}</p>
       <p class="card-text">By: {{ article.author }}</p>
