@@ -33,14 +33,14 @@
                   {% endif %}
                  </form>
                  <br>
-                 <h3> <i class="fa fa-solid fa-comment"></i> Comments:</h3>
+                 <h3><i class="fa fa-solid fa-comment"></i> Comments:</h3>
                   {% for comment in article.comments.all %}
                 <p class="leading-relaxed mb-8"><strong>{{ comment.user }}</strong></p>
                 <p class="leading-relaxed mb-8">{{ comment.date }}</p>
                 <p class=" mb-8">{{ comment.content }}</p>
                 {% endfor %}
                 <hr>
-                <h3>Add your comment:</h3>
+                <h4>Add your comment:</h4>
                 {% if user.is_authenticated and not article.comments.all %}
                  <p>No comments yet... Why not be the first?</p>
                  <a href="{% url 'articles:add_comment' slug=article.slug %}">Add comment: </a>
@@ -50,7 +50,7 @@
                  <p>You need to be <a href="{% url 'accounts:login' %}">logged in</a>  to comment...</p>
                  {% endif %}
                  <hr>
-                 <h3><a href="{% url 'articles:list' %}"> Back to Home Page </a></h3>
+                 <h3><a href="{% url 'articles:list' %}"> Home </a></h3>
 
                 
               </div>

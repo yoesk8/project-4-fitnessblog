@@ -4,15 +4,12 @@
 
 [Visit the live site](https://pooltesting-buddy.onrender.com).
 
-The purpose of this application is to help health clubs and leisure centres  keep an up to date record of all pool tests completed througout the day to day operations.
-
-It is a very common issue in the leisure industry to lose or damage the pool test sheets as they are kept(mainly) on or nearby poolside area away from management's offices
+The purpose of this application is to help users find useful information on fitness, nutrition and other related subjects while also being able to post articles and interact with other blog members through the comment section.
 
 
-* The Home page for first time users has a brief explanation of what the website is and a link to the login page
-* All users can add pool tests once logged in.
-* The 'admin' (username:admin password:1234567890) user has the adittional option of editing and deleting pool tests from the database
-* All users have acces (once logged in) to a FAQ with key points on how to complete a pool test
+* The Home page for first time users has an attractive image welcoming the user and with a brief explanation of what the blog is
+* All users can add create articles, like and comment on posts once logged in.
+* If the first time user doesn't want to sign-up he can still read the articles
 
 
 
@@ -22,23 +19,22 @@ It is a very common issue in the leisure industry to lose or damage the pool tes
 
 ### New User Stories
 
-* As a new user, I want to quickly understand the purpose of the site so that I can decide if it provides value to me.
-* As a new user, I want to be able to quickly understand how to use the application to meet my needs.
-* As a new user, I want clear instructions on how to log the pool test
+* As a new user, I want to be able to easily navigate the website and find relevant information on different types of exercises and workout plans.
+* As a busy working professional, I want to be able to access short training articles that can be read in a short amount of time, such as 5 minutes or less.
+* As someone recovering from an injury, I want to be able to find short articles that provide information and tips on how to safely exercise with specific limitations.
 
 
 ### Returning User Stories
 
 * As a returning user, I want to be able to quickly access the features I’m interested in.
-* As a returning user, I want to know where to look for more information on how to complete a pool test if I feel unsure
-* As a returning admin user, I want to be able to easily access and manage the data I’ve saved in the application.
-* As a returning admin user, I want to be able to easily access and delete the data other users have saved in the application.
+* As a returning user, I want to be able to leave comments on articles to share my own experiences and provide feedback to the author.
+* As a returning user, I want to be able to like or upvote articles that I find helpful or informative, so that other users can easily see which articles are most valuable.
 
 
 
 ### Design
 
-The site uses the Materialize framework. I used Materialize's orange colour pallete as it resembles the colors produced when completing a pH test for a swimming pool with a comparitor.
+The site uses the Bootstrap framework. I used a simple colour pallete that makes the article content pop out.
 
 #### Colours and Shades
 
@@ -68,8 +64,8 @@ The site uses the Materialize framework. I used Materialize's orange colour pall
 
 #### Typography
 
-* The site logo uses the Lobster font [Lobster font](https://fonts.google.com/specimen/Lobster) from Google Fonts. This font was selected for its high legibility and simple yet elegant design.
-* All other text on the site uses the standard Materialize framework font stack, which consists of a number of simple, legible sans-serif fonts targeted at a range of different viewing devices and operating systems.
+* The site logo uses the Rowdies font [Rowdies font](https://fonts.google.com/specimen/Rowdies) from Google Fonts. This font was selected for its high legibility and simple yet elegant design.
+* All other text on the site uses the standard Bootstrap framework font stack, which consists of a number of simple, legible sans-serif fonts targeted at a range of different viewing devices and operating systems.
 
 #### Imagery
 
