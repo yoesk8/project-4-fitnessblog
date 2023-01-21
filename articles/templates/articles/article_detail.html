@@ -5,8 +5,7 @@
 <div class="container px-5  mx-auto">
     <div class="flex flex-wrap">
       <div class="flex flex-col items-start">
-        <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">CATEGORY:</span>
-        <p>{{ article.category }}</p>
+        <span class="inline-block py-1 px-2 rounded bg-indigo-50 text-indigo-500 text-xs font-medium tracking-widest">CATEGORY: {{ article.category }}</span>
         <h2 class="sm:text-3xl text-2xl title-font font-medium text-white-900 mt-4 mb-4">{{ article.title }}</h2>
         <img class="img-fluid" src="{{ article.thumb.url }}" alt="">
         <p class="leading-relaxed mb-8">{{ article.body }}</p>
@@ -51,8 +50,6 @@
                  {% endif %}
                  <hr>
                  <h3><a href="{% url 'articles:list' %}"> Home </a></h3>
-
-                
               </div>
             </div>
           </div>
