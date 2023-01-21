@@ -9,10 +9,11 @@
         <h2 class="sm:text-3xl text-2xl title-font font-medium text-white-900 mt-4 mb-4">{{ article.title }}</h2>
         <img class="img-fluid" src="{{ article.thumb.url }}" alt="">
         <br>
+        <br>
         <p class="leading-relaxed mb-8">{{ article.body }}</p>
         <span class="flex-grow flex flex-col pl-4">
-            <span class="title-font font-medium text-white-900">{{ article.date }}</span>
-            <span class="text-gray-400 text-xs tracking-widest mt-0.5"><p>By: </p>{{ article.author }}</span>
+            <p>Written on: {{ article.date }}</p>
+            <p>By: {{ article.author }}</p>
           </span>
           <hr>
           <div class="container">
