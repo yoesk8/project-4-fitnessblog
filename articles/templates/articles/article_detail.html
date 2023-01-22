@@ -10,7 +10,7 @@
         <img class="img-fluid" src="{{ article.thumb.url }}" alt="">
         <br>
         <br>
-        <p class="leading-relaxed mb-8">{{ article.body }}</p>
+        <p class="leading-relaxed mb-8">{{ article.body|safe }}</p>
         <span class="flex-grow flex flex-col pl-4">
             <p>Written on: {{ article.date }}</p>
             <p>By: {{ article.author }}</p>
