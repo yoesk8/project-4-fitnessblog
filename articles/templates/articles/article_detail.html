@@ -14,7 +14,7 @@
         <span class="flex-grow flex flex-col pl-4">
             <p>Written on: {{ article.date }}</p>
             <p>By: {{ article.author }}</p>
-            {% if user.is_authenticated and user == request.user %}
+            {% if user.is_authenticated and user.id == article.author.id  %}
             <a href="{% url 'articles:article_edit' slug=article.slug %}" class="btn btn-success">Edit</a>
             <a href="{% url 'articles:article_delete' slug=article.slug %}" class="btn btn-danger">Delete</a>
             {% endif %}
