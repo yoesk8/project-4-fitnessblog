@@ -1,8 +1,8 @@
 # TrueFit blog website
 
-![Mockup of PoolTesting buddy on desktop, tablet and mobile](static/documentation_images/am_I_responsive.png)
+![TrueFit](media/home_desktop_view.png)
 
-[Visit the live site](https://pooltesting-buddy.onrender.com).
+[Visit the live site](https://portfolio-4-fitnessblog.herokuapp.com/).
 
 The purpose of this application is to help users find useful information on fitness, nutrition and other related subjects while also being able to post articles and interact with other blog members through the comment section.
 
@@ -38,66 +38,67 @@ The site uses the Bootstrap framework. I used a simple colour pallete that makes
 
 #### Colours and Shades
 
-* The site uses a dark shades of orange for the site’s header and footer, and a lighter shade for the LogIn/SignUp buttons.
+* The site uses a light shade of grey for the site’s header and footer, and a darker shade for the LogIn/SignUp buttons.
 
 * The color of the background is white and text is black to reinforce the contrast and make it easier to read for the user.
 
-![Orange Pallette](static/documentation_images/orange_materialize.png)
-
-* I’ve tried to use relevant Icons and animations througout the site, specially on laptop/desktop devices where the navbar icons have a drop-like animation.
-
-* In the home page I've used materialize's Parallax to give a 'going underwater' illusion whenever the user scrolls down.
-
-![Parallax materialize](static/documentation_images/parallax_materialize.png)
-
-
 * Colours are used consistently in association with a particular type of task:
 
-* Light orange is used on the login / signup buttons.
-![Buttons on the My Routine page, coloured according to function](static/documentation_images/login_button.png)
-* Light green is used on the Edit reading / Add reading buttons.
-![Buttons on the My Routine page, coloured according to function](static/documentation_images/add_reading_button.png)
-* Light red is used on  the Delete button which is accesible only to the admin user.
-![Buttons on the My Routine page, coloured according to function](static/documentation_images/delete_button.png)
+* Dark grey is used on the login / signup buttons.
+
+* Bootstrap's light blue (Primary) is used on the Read article button / and for the articles with the category "Training".
+
+* Bootstrap's green (Success) is used for the articls with the category "Nutrition".
+
 
 
 
 #### Typography
 
 * The site logo uses the Rowdies font [Rowdies font](https://fonts.google.com/specimen/Rowdies) from Google Fonts. This font was selected for its high legibility and simple yet elegant design.
+
 * All other text on the site uses the standard Bootstrap framework font stack, which consists of a number of simple, legible sans-serif fonts targeted at a range of different viewing devices and operating systems.
 
 #### Imagery
 
-* [Font Awesome 6](https://fontawesome.com/) icons are used throughout the site to illustrate buttons.
+* [Font Awesome 6](https://fontawesome.com/) icons are used for the logo and the comment and like buttons.
 
-* The “Pool testing guide” section of the Getting Started page is illustrated with fontawesome icons as well.
+* [Unsplash ](https://unsplash.com/) I used a stock photo from unsplash the home page.(https://unsplash.com/photos/zQNDCje06VM)
+* [Unsplash ](https://unsplash.com/) I used stock photos from unsplash for all 3 of the pre-written articles thumbnails.(https://unsplash.com/photos/)
 
-* [Unsplash ](https://unsplash.com/) I used a swimming pool image used for the home page.(https://unsplash.com/photos/nq18MYhxdGs)
-
-### Wireframes
+## Wireframes
 
 The site is responsively designed to adapt to the user's viewing device.
 
+### Desktop view wireframe
+
+ ![desktop wireframe](media/desktop_wireframe.png)
+
+
+### Mobile view wireframe
+
+ ![Mobile wireframe](media/mobile_wireframe.png)
+
+
 ## Home Desktop view
 
- ![Home desktop view](static/documentation_images/home_logged_out.png)
+ ![Home desktop view](media/home_desktop_view.png)
 
  ## Mobile Home view
 
- ![Mobile Home view](static/documentation_images/mobile_view_home.png)
+ ![Mobile Home view](media/home_mobile_view.png)
  
- ## Home log in desktop view
+ ## Log in desktop view
 
- ![Home desktop view](static/documentation_images/login_wireframe.png)  
+ ![login desktop view](media/login_desktop_view.png)  
 
-  ## Home sign up desktop view
+  ## Log in mobile view
 
- ![Home desktop view](static/documentation_images/Sign_up_wireframe.png)  
+ ![login mobile view](media/login_mobile_view.png)  
 
- ## New pool test desktop view
+ ## Sign up mobile view
 
- ![New pooltest view](static/documentation_images/add_pool_test.png)  
+ ![Sign up mobile view](media/signup_mobile_view.png)  
 ***
 
 ## Features
@@ -161,9 +162,9 @@ New users are adviced to visit the F.A.Q page at the home screen. The FAQ page h
 
 ## Database Design
 
-PoolTesting buddy uses the MongoDB non-relational database. Data is divided into three collections, with the following schema:
+TrueFit uses a SQL database. Data is divided into three collections, with the following schema:
 
-![Datbase diagram](static/documentation_images/database_design.png)
+![Datbase diagram](media/database_schema.png)
 
 ***
 
