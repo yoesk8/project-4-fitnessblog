@@ -14,6 +14,9 @@
         <span class="flex-grow flex flex-col pl-4">
             <p>Written on: {{ article.date }}</p>
             <p>By: {{ article.author }}</p>
+            {% if user == request.user %}
+            <a href="{% url 'articles:article_edit' slug=article.slug %}" class="btn btn-success">Edit</a>
+            {% endif %}
           </span>
           <hr>
           <div class="container">

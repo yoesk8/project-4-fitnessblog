@@ -3,7 +3,7 @@ from django.urls import reverse_lazy, reverse
 from .models import Article, Comment
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
-from django.views.generic.edit import CreateView
+from django.views.generic.edit import CreateView, UpdateView
 from . import forms
 
 
@@ -63,6 +63,15 @@ class AddCommentView(CreateView):
         article = Article.objects.get(slug=self.kwargs['slug'])
         form.instance.post_id = article.id
         return super().form_valid(form)
+
+    def get_success_url(self):
+        return reverse_lazy('articles:detail', kwargs={'slug': self.kwargs['slug']})
+
+
+class UpdateArticleView(UpdateView):
+    model = Article
+    template_name = 'articles/article_edit.html'
+    fields = ['title', 'body', 'thumb', 'category']
 
     def get_success_url(self):
         return reverse_lazy('articles:detail', kwargs={'slug': self.kwargs['slug']})

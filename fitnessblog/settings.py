@@ -23,11 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+# SECRET_KEY = os.environ.get('SECRET_KEY', '')
+SECRET_KEY = ')l-^%953fy95v!q&fjyg(i!2r%(x=9p(fh(90^ml%h=q*w=d8f'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
-
+# DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 
 
@@ -168,6 +169,6 @@ if 'USE_AWS' in os.environ:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-yoesk8-project4fitnessb-n0996w69h5g.ws-eu82.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-yoesk8-project4fitnessb-602pm453w1p.ws-eu83.gitpod.io']
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
