@@ -16,6 +16,7 @@
             <p>By: {{ article.author }}</p>
             {% if user == request.user %}
             <a href="{% url 'articles:article_edit' slug=article.slug %}" class="btn btn-success">Edit</a>
+            <a href="{% url 'articles:article_delete' slug=article.slug %}" class="btn btn-danger">Delete</a>
             {% endif %}
           </span>
           <hr>
