@@ -32,7 +32,7 @@ The purpose of this application is to help users find useful information on fitn
 
 
 
-### Design
+## Design
 
 The site uses the Bootstrap framework. I used a simple colour pallete that makes the article content pop out.
 
@@ -48,7 +48,9 @@ The site uses the Bootstrap framework. I used a simple colour pallete that makes
 
 * Bootstrap's light blue (Primary) is used on the Read article button / and for the articles with the category "Training".
 
-* Bootstrap's green (Success) is used for the articls with the category "Nutrition".
+* Bootstrap's green (Success) is used for the articles with the category "Nutrition" and edit button.
+
+* Bootstrap's red (danger) is used for the delete button.
 
 
 
@@ -117,9 +119,9 @@ TrueFit blog features a user account system whereby users can create a persisten
 
 * The application uses Django pre written authentication to handle user signup and login functionality.
 
-### Create new articles
+## Create new articles
 
-The core feature of TrueFit is the ability to create unique posts for each user. Full CRUD (create, read, update, delete) functionality is implemented for blog posts. This means although a visiting user can only read the already posted articles, signed up users can add, delete and edit their own posts while also being able to comment and like other people's posts.
+The core feature of TrueFit is the ability to create unique posts for each user, even using HTML if the user wanted to for more flexibility on how his article is displayed. Full CRUD (create, read, update, delete) functionality is implemented for blog posts. This means although a visiting user can only read the already posted articles, signed up users can add, delete and edit their own posts while also being able to comment and like other people's posts.
 
 * New blog posts (articles) are added by completing a form, which is located on the main navbar but only for logged in users.
 
@@ -207,7 +209,8 @@ The following features could be added in the future, given more development time
 9. [Heroku](https://heroku.com/) - Used to deploy the site.
 10. [W3C.org](https://www.w3.org/) - W3C [HTML Validator](https://validator.w3.org/nu/) and [CSS Validator](https://jigsaw.w3.org/css-validator/validator) used to check HTML and CSS code for errors.
 11. [JSHint](https://jshint.com/) - Used to check JavaScript for errors.
-12. [PEP8 Online](http://pep8online.com/) - Used to check Python code for errors.
+12. [Pycodestyle](https://pypi.org/project/pycodestyle/) - Used to check Python code for errors.
+13. [ChatGPT](https://chat.openai.com/chat) - Used to generate dummy articles and to explain and check code
 
 
 
@@ -257,10 +260,10 @@ When first creating my project I forgot to add the sqlite database to the .gitig
 ![resolved4](media/secret_key_exposed.png)
 
 
-* ## Hero image not loading from Amazon s3 bucket.
+* ##  Images not loading from Amazon s3 bucket.
 
 
-This one was a tough to spot as I was sure that I had followed step by step the tutorial on storing static files on my amazon bucket. When I uploaded my files to my amazon bucket, the deployed site was not displaying the hero image despite the css styling being applied, telling me that the error was exclusively with the image
+This one was a tough one to spot as I was sure that I had followed step by step the tutorial on storing static files on my amazon bucket. When I uploaded my files to my amazon bucket, the deployed site was not displaying any images despite the css styling being applied, telling me that the error was exclusively with the images and not all staticfiles.
 
 > I have to give credit to the amazing CodeInstitute Slack comunity, which guided me in the right direction, it turns out that the url configuration is specific to the Region where the bucket is, and unlike the US region where the url just ends in ".s3.amazonaws.com" for the EU region the region has to also be added to the url, like the image shows below
 
@@ -285,184 +288,74 @@ I noticed that this tests scores vary from time to time and depends on external 
  
  * [W3C CSS Validator](https://jigsaw.w3.org/css-validator/) to validate CSS
 
- ![CSS validator](static/documentation_images/css_validation.png)
+ ![CSS validator](media/css_validator.png)
 
  * [Nu Html Checker](https://validator.w3.org/) to test HTML
 
- ![HTML validator](static/documentation_images/home_html_validation.png)
+ ![HTML validator](media/html_validation.png)
 
- * [JShint](https://jshint.com/) to test JavaScript
-
- ![JS validator](static/documentation_images/javascript_va;idation.png)
  
- * [Pep8](https://pypi.org/project/pep8/) to test python
-
- ![JS validator](static/documentation_images/pep8_validation.png)
+ * [Pycodestyle](https://pypi.org/project/pycodestyle/) to test python files
 
 
 
 
 ***
 
-## Deployment
+## DEPLOYMENT
+**Step 1:** Create a new app in Heroku, choose a unique name and region.
+**Step 2:** Login to ElephantSQL, access the dashboard and create a new instance (input a name, select a region).
+**Step 3:** Return to dashboard, copy the database URL:
+![ElephantSQL](media/elephantsql_database.png)
 
-### Forking the GitHub Repository
+**Step 4:** Create env.py file (ensure it is included in .gitignore file) and add environment the below variables. Paste the URL from above:
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/yoesk8/pooltesting_buddy_PP3)
-2. At the top right of the page, click the "Fork" Button.
-3. You should now have a copy of the original repository in your GitHub account.
+<img width="372" alt="image" src="https://user-images.githubusercontent.com/97494262/209531222-599282ee-2c54-490f-b543-1f09e5255490.png">
 
-### Making a Local Clone
+**Step 5:** Include a secret key in the variables:
 
-You can download the project source code as a zip file by clicking the 'Code' dropdown at the top right of the file navigation window and selecting "Download as ZIP". You can then unzip that file to wherever you want your local copy to be.
+<img width="800" alt="Screenshot 2022-12-26 at 11 25 13" src="https://user-images.githubusercontent.com/97494262/209531979-9ba177cc-3e44-48a7-80dc-884d06932f54.png">
 
-If you have Git installed on your computer, you can clone the project by following these steps:
+**Step 6:** Include the below code to settings.py file:
 
-1. Log in to GitHub and locate the [repository](https://github.com/yoesk8/pooltesting_buddy_PP3)
-2. Click the 'Code' dropdown at the top right of the file navigation window.
-3. Copy the link under 'Clone' and 'HTTPS' to clone the repository using HTTPS.
-4. Open Git Bash
-5. Change the current working directory to the location where you want the cloned directory to be made.
-6. Type `git clone`, and then paste the URL you copied in Step 3.
+<img width="301" alt="image" src="https://user-images.githubusercontent.com/97494262/209532128-acaa1e29-edea-45c3-93ce-2caaf0f71862.png">
 
-```
-$ git clone https://github.com/yoesk8/pooltesting_buddy_PP3
-```
-7. Press Enter. Your local clone will be created.
+**Step 7:** Link the database in settings.py and migrate then push to GitHub:
 
-Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+<img width="303" alt="image" src="https://user-images.githubusercontent.com/97494262/209532393-5283592f-5caf-4e81-b3fd-9d20bd62b111.png">
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://github.com/yoesk8/pooltesting_buddy_PP3)
+**Step 8:** In Heroku, add three config vars:
 
-### Database Setup
+<img width="243" alt="image" src="https://user-images.githubusercontent.com/97494262/209532605-04bff00b-951f-4084-9ad5-6eff111ac6bf.png">
 
-The project uses MongoDB, so for either local or remote deployment you'll need a properly configured database.
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/97494262/209532533-e9b3d879-a40a-4335-a56b-3c0e5c370a8a.png">
 
-1. If you don't have a MongoDB account, sign up for a free account at [MongoDB](https://www.mongodb.com/).
-2. If you don't have any clusters, create a new cluster.
-3. Add a new database to your cluster with the name: **pooltesting_buddy**
-4. The pooltesting_buddy database should have three collections with the following setup:
+**Step 9:** Login to Cloudinary, copy the API Environmental variable to dashboard and add to env.py (see screenshot above) & to Heroku config vars:
 
-**users**
-```
-_id: <ObjectId>
-username: <string>
-name: <string>
-password: <string>
-```
+<img width="571" alt="image" src="https://user-images.githubusercontent.com/97494262/209533286-4a79143c-6568-4055-99fc-76dd5821a02b.png">
 
-**pool_type**
-```
-_id: <ObjectId>
-max_batherload: <string>
-type: <string>
-```
+**Step 10:** Add cloudinary to installed apps in settings.py, add static/media file settings:
 
-**readings**
-```
-_id: <ObjectId>
-date: <string>
-time: <string>
-pool_type: <string>
-free_chlorine: <string>
-total_chlorine: <string>
-combined_chlorine: <string>
-ph: <string>
-water_temperature: <string>
-outside_parameters: <string>
-```
+<img width="407" alt="image" src="https://user-images.githubusercontent.com/97494262/209533445-8f6670c5-490b-4294-95cf-febaaaed2ab2.png">
 
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/97494262/209533629-ab3fb31b-f096-4305-996e-970e4c950a3f.png">
 
+**Step 11:** Add template directories in settings.py, add Heroku host name to allowed hosts and add directory files:
 
-In order to connect to the database, you'll need to create a user and generate a MongoDB URI. 
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/97494262/209533879-b8284837-e7a1-4315-83e6-9b88d2125882.png">
 
-#### Creating a Database User
+<img width="501" alt="image" src="https://user-images.githubusercontent.com/97494262/209534100-46723f98-7bd6-40ed-91c1-5226ad6e950d.png">
 
-1. Go to the Overview page of your cluster 
-2. Click Database Access under Security in the side menu
-3. Next click Add New Database User
-4. Select Password as the authentication method and then enter a username and password
-5. Under "Built-in role" select "Read and write to any database"
-6. Click "Add User"
+<img width="313" alt="image" src="https://user-images.githubusercontent.com/97494262/209534271-772afed4-f299-45dc-b72d-d0843b7ad189.png">
 
-#### Generating a MongoDB URI
+**Step 12:** Create a Procfile, then commit and push to GitHub:
 
-1. Go to the Overview page of your cluster
-2. Click the "Connect" button
-3. Select "Connect your application"
-4. Make sure 'Python' is selected for the driver, then copy the URI provided in the box
-5. Replace the "password" and "myFirstDatabase" parts of the URI with your database user's password and the name of your database
+<img width="504" alt="image" src="https://user-images.githubusercontent.com/97494262/209534389-5b0cdd3c-54f7-44e8-8a21-99068431365a.png">
 
-### Local Deployment
+**Step 13:** Connect GitHub account in Heroku, connect and deploy branch. Open app and check:
 
-Follow the steps below to deploy the project locally using VSCode.
+<img width="421" alt="image" src="https://user-images.githubusercontent.com/97494262/209534580-c03fa4fd-8e52-487b-8ecc-23563fd30327.png">
 
-(N.B. These instructions are for deployment on a Windows system)
-
-1. Download and install [VSCode](https://code.visualstudio.com/)
-6. Open VSCode and click File > Open Folder, then select the folder containing your local cloned repository
-7. Download and install [Python](https://www.python.org/downloads/)
-8. Download and install the [VSCode Python extension](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-9. In VSCode, open the command palette (Ctrl + Shift + P on Windows) and search for the Python: Select Interpreter. Click it, then select the version of Python you have installed.
-10. Open a terminal in VSCode and enter the following commands to create and activate a virtual environment:
-```
-py -3 -m venv .venv
-.venv\scripts\activate
-```
-11. Open the command palette and search for Python: Select Interpreter again. You should see your new virtual environment. Select it.
-12. In the terminal, enter the following command to install all required packages:
-```
-python -m pip install -r requirements.txt
-```
-13. Create a new file in your project directory called "env.py"
-14. Add the following to the env.py file, replacing YOUR_MONGO_URI with your MongoDB URI, YOUR_DATABASE_NAME with your database name, and YOUR_SECRET_KEY with a suitable [secret key](https://flask.palletsprojects.com/en/2.0.x/config/#SECRET_KEY):
-```
-import os
-
-os.environ.setdefault("IP", "0.0.0.0")
-os.environ.setdefault("PORT", "5000")
-os.environ.setdefault("SECRET_KEY", "YOUR_SECRET_KEY")
-os.environ.setdefault("MONGO_URI", "YOUR_MONGO_URI")
-os.environ.setdefault("MONGO_DBNAME", "YOUR_DATABASE_NAME")
-os.environ.setdefault("ENV_DEBUG", "True")
-```
-15. In the terminal, type `python app.py` to run the app. A link to the locally running instance of the app should be printed in the terminal window.
-
-### Remote Deployment
-
-The app is currently deployed on Heroku [here](https://pooltesting-buddy.herokuapp.com/).
-
-To deploy your own copy of the app, follow the steps below:
-
-1. Sign up for a [Heroku account](https://www.heroku.com/).
-2. Check that you have a "requirements.txt" in your app's root directory. This tells Heroku what packages are required by the app. If you've cloned the main branch, this should already be present. If it's missing or if you have added any additional packages, you can generate a requirements.txt file by running the following command from the terminal of your IDE:
-```
-pip3 freeze --local > requirements.txt
-```
-3. Check that you have a "Procfile" in your app's root directory. This tells Heroku what kind of application you are trying to run. Again, if you've cloned the main branch, this should already be present. If it's missing, you can create a procfile by running the following command from the terminal of your IDE:
-```
-echo web: python app.py > Procfile
-```
-4. Check that there are no trailing blank lines at the bottom of your procfile. Delete any empty lines
-5. From your Heroku dashboard, click "New", then "Create a new app"
-6. Give the app a unique App name, pick the region closest to you, then click "Create App"
-7. From the "Deploy" menu, select GitHub as the Deployment Method, then enter your GitHub repository details and click "Connect"
-8. Open the "Settings" menu, scroll down to "Config Vars" and click "Reveal Config Vars"
-9. Enter the following Config Vars, replacing YOUR_MONGO_URI with your MongoDB URI, YOUR_DATABASE_NAME with your database name, and YOUR_SECRET_KEY with a suitable [secret key](https://flask.palletsprojects.com/en/2.0.x/config/#SECRET_KEY):
-```
-IP: 0.0.0.0
-PORT: 5000
-SECRET_KEY: YOUR_SECRET_KEY
-MONGO_URI: YOUR_MONGO_URI
-MONGO_DBNAME: YOUR_DATABASE_NAME
-ENV_DEBUG:
-```
-10. Note that ENV_DEBUG should be left blank, unless you wish to deploy the application with debug mode enabled
-11. Return to the "Deploy" menu, scroll to "Automatic deploys" and click "Enable Automatic Deploys"
-12. Choose your branch and then click "Deploy Branch"
-13. Once the application has finished deploying, click "View" to visit the site.
-
-***
 
 ## Other Credits and Acknowledgements
 
