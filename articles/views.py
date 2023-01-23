@@ -7,11 +7,13 @@ from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from . import forms
 
 
+# View to list all existing articles and order them by date
 def article_list(request):
     articles = Article.objects.all().order_by("date")
     return render(request, "articles/article_list.html", {'articles': articles})
 
 
+# View to display seleceted article
 def article_detail(request, slug):
     article = Article.objects.get(slug=slug)
     total_likes = article.total_likes()
@@ -24,6 +26,7 @@ def article_detail(request, slug):
                                                             'liked': liked})
 
 
+# View to create article, only allow this to logged in users
 @login_required()
 def article_create(request):
     if request.method == 'POST':
@@ -40,6 +43,7 @@ def article_create(request):
     return render(request, 'articles/article_create.html', {'form': form})
 
 
+# View to like article, if the post is already liked, remove it 
 def LikeView(request, slug):
     post = get_object_or_404(Article, id=request.POST.get('article_id'))
     liked = False
@@ -52,6 +56,7 @@ def LikeView(request, slug):
     return HttpResponseRedirect(reverse('articles:detail', args=[str(slug)]))
 
 
+# View to add comment, only for logged in users
 class AddCommentView(CreateView):
     model = Comment
     template_name = 'articles/add_comment.html'
@@ -68,6 +73,7 @@ class AddCommentView(CreateView):
         return reverse_lazy('articles:detail', kwargs={'slug': self.kwargs['slug']})
 
 
+# View to update article, restricted for the creators of the article in the frontend
 class UpdateArticleView(UpdateView):
     model = Article
     template_name = 'articles/article_edit.html'
@@ -76,6 +82,7 @@ class UpdateArticleView(UpdateView):
     def get_success_url(self):
         return reverse_lazy('articles:detail', kwargs={'slug': self.kwargs['slug']})
 
+# View to delete article, restricted for the creators of the article in the frontend
 class DeleteArticleView(DeleteView):
     model = Article
     template_name = 'articles/article_delete.html'
