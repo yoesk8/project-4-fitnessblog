@@ -8,7 +8,7 @@ The purpose of this application is to help users find useful information on fitn
 
 
 * The Home page for first time users has an attractive image welcoming the user and with a brief explanation of what the blog is
-* All users can add create articles, like and comment on posts once logged in.
+* All users can create edit or delete their own articles, like and comment on other perople's articles if logged in.
 * If the first time user doesn't want to sign-up he can still read the articles
 
 
@@ -105,56 +105,43 @@ The site is responsively designed to adapt to the user's viewing device.
 
 ### User Accounts
 
-PoolTest Buddy features a user account system whereby users can create a persistent account, accessed by username and password, and store tests associated with their account.
+TrueFit blog features a user account system whereby users can create a persistent account, accessed by username and password, and store blog posts associated with their account, also likes and comments posted on other user's posts are unique to each account to prevent duplicated comments or one user giving unlimited likes to one post.
 
 * Users create accounts by filling in a simple registration form.
 
-![Registration form](static/documentation_images/sign_up_screenshot.png)
+![Registration form](media/signup_mobile_view.png)
 
 * Users sign in to their accounts by filling in a login form and sign out using a link in the navigation bar.
 
-![Login form](static/documentation_images/login_screenshot.png)
+![Login form](media/login_mobile_view.png)
 
-* The application uses the Flask session object to handle user login functionality and passwords are hashed using Werkzeug helper functions.
+* The application uses Django pre written authentication to handle user signup and login functionality.
 
-### Pool tests Log
+### Create new articles
 
-The core feature of PoolTest buddy is a log allowing users to record their completed pool tests. Full CRUD (create, read, update, delete) functionality is implemented for tests logs, so the admin user can add, delete and edit their records as he wishes while regular users can only add logs.
+The core feature of TrueFit is the ability to create unique posts for each user. Full CRUD (create, read, update, delete) functionality is implemented for blog posts. This means although a visiting user can only read the already posted articles, signed up users can add, delete and edit their own posts while also being able to comment and like other people's posts.
 
-* Tests logs are added by completing a form, which is linked to from buttons on the New reading page.
+* New blog posts (articles) are added by completing a form, which is located on the main navbar but only for logged in users.
 
-![Add workout logs by filling a form](static/documentation_images/add_reading_screenshot.png)
+![Add new article by filling a form](media/create_article.png)
 
-* All test logs are listed on the home page.
+* All articles are listed on the home page and the category of each article is color coded.
 
-![List of tests logs](static/documentation_images/readings_screenshot.png)
-
-
-* When editing a log entry, the form is prepopulated with the current values of that log.
-
-![Prepopulated edit log form](static/documentation_images/edit_reading.png)
-
-### Pool test Management
+![List of articles](media/article_list.png)
 
 
-* By design, users cannot edit or delete the pool test records, as this prevents altering of previous records which could cause issues. However, the ‘admin’ user account can add, edit or delete records. This allows the site admin to make changes to the any error a normal user might have comitted while also adding a barrier to avoid dishonest behaviour.
+* When editing an article, the form is prepopulated with the current values of that article.
 
-![Admin view of previous test](static/documentation_images/admin_edit.png)
+![Prepopulated article form](media/edit_article_prepopulated.png)
 
-
-*  When editing a test, the form is prepopulated with the current values of that routine.
-
-![Edit test logs are prepopulated](static/documentation_images/edit_reading.png)
+### Article management
 
 
-### FAQ
+* By design, users can only edit or delete their own  articles, as this prevents altering of other people's article posts. This allows the user to remain confident that their articles won't be tampered with.
 
-New users are adviced to visit the F.A.Q page at the home screen. The FAQ page has answers to common questions.
+![View of edit and delete for user's article](media/article_edit_delete_scre.png)
 
 
-* The FAQ page provides answers to common questions in a collapsible accordion. Users can find detailed instructions for how to complete a test here.
-
-![FAQ accordion](static/documentation_images/faq.png)
 
 
 
@@ -175,26 +162,25 @@ The following features could be added in the future, given more development time
 ### 1. Account Management Tools
 
 * Helpful account management tools could be provided, such as the ability to update usernames, email addresses and passwords.
-* A password recovery by email function could also be provided. The [flask-security](https://pythonhosted.org/Flask-Security/features.html) extension can provide this functionality, as well as some other more advanced account management tools.
+* A password recovery by email function could also be provided. Django authentication tools could be used for this.
 
-### 2. Additional Log Filters
+### 2. Article Filters
 
-* Admin user to be able to filter the log page by date range.
+* The ability for all users to filter the articles by category.
 
 
-### 3. Simplification of the add readings form
+### 3. Search Articles
 
-* Eliminating the "Combined chlorine selection option and just subtracting the Total minus the free and populating that area accordingly
+* The ability to search articles that contain a word or words in either the title or body 
 
-### 4. Email notification to the admin when readings are outside parameters
+### 4. Chat functionality
 
-* Admin to automatically receive an email whenever readings are outside parameters and action is needed
+* The ability to chat with other users of the blog. Django channels could be used for this.
 
 ### 5. Code optimization and refactoring
 
-* This was my first major project using Python and Flask, so there are a few areas where I feel the code could be made neater and more efficient.
-* In particular, more helper functions could be employed to avoid repeating common tasks across the different functions.
-
+* This was my first major project using Python and Django, so there are a few areas where I feel the code could be made neater and more efficient.
+* In particular, replacing some function based views with class based view
 
 ***
 
@@ -211,18 +197,18 @@ The following features could be added in the future, given more development time
 
 1. [GitHub](https://github.com/) - Used for version control.
 2. [GitPod](https://gitpod.io/) - Used to write all code and test before deploying to GitHub.
-3. [Mockplus](https://mockplus.com/) - Used to produce design wireframes.
-4. [Materialize](https://materializecss.com/) - Materialize CSS framework used extensively to create layout and styling of site.
-5. [jQuery](https://jquery.com/) - Used to initialise Materialize components and validate select elements.
-6. [Python 3.8](https://www.python.org/) - Used to code the application.
-7. [MongoDB](https://www.mongodb.com/) - Used for the application's database.
-7. [Flask](https://palletsprojects.com/p/flask/), [Jinja](https://jinja.palletsprojects.com/en/3.0.x/) and [Werkzeug](https://palletsprojects.com/p/werkzeug/) - Used to build the main application structure, page templates (Jinja) and account security (Werkzeug).
-8. [PyMongo](https://github.com/mongodb/mongo-python-driver) - Used to connect Python with MongoDB
+3. [Balsamiq](https://balsamiq.com/) - Used to produce design wireframes.
+4. [Bootstrap4](https://bootstrap.com/) - Bootstrap 4 CSS framework used extensively to create layout and styling of site.
+5. [Python 3.8](https://www.python.org/) - Used to code the application.
+6. [ElephantSQL](https://www.elephantsql.com/) - Used for the application's database.
+7. [Django](https://www.djangoproject.com/) - Used to build the main application structure and page templates 
+8. [Django storages](https://django-storages.readthedocs.io/en/latest/) - Used to connect web app with Amazon AWS S3 Bucket
+9. [AWS](https://aws.com) Used to store static files
 9. [Heroku](https://heroku.com/) - Used to deploy the site.
 10. [W3C.org](https://www.w3.org/) - W3C [HTML Validator](https://validator.w3.org/nu/) and [CSS Validator](https://jigsaw.w3.org/css-validator/validator) used to check HTML and CSS code for errors.
 11. [JSHint](https://jshint.com/) - Used to check JavaScript for errors.
 12. [PEP8 Online](http://pep8online.com/) - Used to check Python code for errors.
-13. [Kaffeine Heroku](http://kaffeine.herokuapp.com/) -Used to ensure that heroku page doesn't hibernate (Note that page goes to 'sleep' at midnight until 6 am and is not available during those 6 hours)
+
 
 
 ***
@@ -240,36 +226,45 @@ The following features could be added in the future, given more development time
  I tested on hardware devices such as: Ipad air with iOS, Iphone 13 mini with iOS 15.4, Macbook air with MacOS and Surface Pro with windows 10
 
 
+## Unit Tests
+
+I created unit tests for the login and signup page with django tests
+
+![Unit tests](media/tests_screenshot.png)
+
+
 ---
-## Issues found during site development
+# Issues found during site development
 
-* ### Edit reading page not pre-populating the previously selection
-
-
-![testing-issue-1](static/documentation_images/pre_populating_edit.png)
-
-When clicking on the 'edit' button on a previously recorded pool test, I noticed that the right fields were not being selected and on some ocassions not even appearing on the select fields
-
-> I fixed this by adding the 'value' attribute to the options tag and populating it with the correct Jinja expression to access the relevant data.
+* ## Edit Article view creating additional article instead of editing existing one
 
 
 
-* ### Logo overflowing on small and extra small devices
+When editing existing articles, once the "Update" button was clicked, the edit article view would create an aditional article onto the database instead of updating the existing one
 
-> I fixed this by adding a media query which removes the logo completely by setting the display to 'none' when in small devices.
-
-![resolved4](static/documentation_images/media_query_fix.png)
+> This was due to the action attribute on the form pointing to the "articles:create" url, as I had copy the form from the article_create html template and had forgotten to delete this, all I had to do to fix this error was to delete the action as shown on the picture bellow.
 
 
-* ### Login not working.
+![testing-issue-1](media/article_edit_bug.png)
 
-![testing_issue_2](static/documentation_images/endpoint_non_existent.JPG)
 
-This one was a tough one for me, as I changed the name of some of the templates, the endpoint was not being built properly as it was still pointing to non-existing pages.
+* ## Secret Key being exposed
 
-> I fixed this by updating the relevant python functions with the new names of the html pages that flask was pointing to.
+When first creating my project I forgot to add the sqlite database to the .gitignore which cause django's secret key to be exposed when pushing to github
 
-![resolved](assets/readme-images/counter1.png)
+> Thankfully gitguardian let me know almost instantly that it had happened, so I generated a new secret key and made sure to add the sqlite database to the .gitignore before pushing to github.
+
+![resolved4](media/secret_key_exposed.png)
+
+
+* ## Hero image not loading from Amazon s3 bucket.
+
+
+This one was a tough to spot as I was sure that I had followed step by step the tutorial on storing static files on my amazon bucket. When I uploaded my files to my amazon bucket, the deployed site was not displaying the hero image despite the css styling being applied, telling me that the error was exclusively with the image
+
+> I have to give credit to the amazing CodeInstitute Slack comunity, which guided me in the right direction, it turns out that the url configuration is specific to the Region where the bucket is, and unlike the US region where the url just ends in ".s3.amazonaws.com" for the EU region the region has to also be added to the url, like the image shows below
+
+![resolved](media/aws_region_bug.png)
 
 
 ## Performance testing
@@ -279,7 +274,7 @@ Screenshots are presented below:
 
 
 Final results:
-![performance_final](static/documentation_images/light_house_testing.png)
+![performance_final](media/light_house_truefit.png)
 
 I noticed that this tests scores vary from time to time and depends on external libraries as well. 
 
