@@ -13,7 +13,11 @@
     <!-- FontAwesome -->
     <script src="https://kit.fontawesome.com/6c66fc00d5.js" crossorigin="anonymous"></script>
     <title>Articles</title>
+    <!-- My Stylesheet -->
     <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <!-- Stripe -->
+    <script src="https://js.stripe.com/v3/"></script>
+
 </head>
 <body>
 <!-- Bootstrap navbar -->
@@ -31,6 +35,9 @@
       {% if user.is_authenticated %}
       <li class="nav-item mx-2 mt-3 mb-3">
         <a class="nav-link" href="{% url 'articles:create' %}">Create new article</a>
+      </li>
+      <li class="nav-item mx-2 mt-3 mb-3">
+        <a class="nav-link" href="{% url 'donation' %}">Say Thanks!</a>
       </li>
     </ul>
       <form class="form-inline my-2 my-lg-0" action="{% url 'accounts:logout' %}" method="post">

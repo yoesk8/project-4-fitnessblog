@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="card mx-auto" style="width: 80%;">
+  <img src="{% static 'media/boxed-water-is-better-zQNDCje06VM-unsplash.jpg' %}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Thank you! </h5>
+    <p class="card-text">We have received your donatin! We'll make sure to keep providing awesome content</p>
+    <a href="{% url 'home' %}">Home</a>
+  </div>
+</div>
+
+  
+  {% endblock %}

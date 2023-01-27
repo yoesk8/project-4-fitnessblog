@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="card mx-auto" style="width: 80%;">
+        <img src="{% static 'media/boxed-water-is-better-zQNDCje06VM-unsplash.jpg' %}" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Are you enjoying the free content? </h5>
+          <p class="card-text">Why not say thanks with a donation then!</p>
+          <p class="card-text">TrueFit is and will <strong>always</strong> be Ad-Free, we want to be able to deliver unbias and unfiltered content, so all donations are VERY welcome!</p>
+        </div>
+        <div class="card-body">
+                <form action="" method="post">
+                        {% csrf_token %}
+                        <label for="amount">Enter payment amount:</label>
+                        <input type="text" id="amount" name="amount" required>
+                        <br>
+                        <br>
+                        <script src="https://checkout.stripe.com/checkout.js"
+                                class="stripe-button"
+                                data-key="{{ key }}"
+                                data-amount="amount"
+                                data-name="Example charge"
+                                data-description="Example charge"
+                                data-locale="auto"
+                                data-zip-code="true">
+                        </script>
+                    </form>
+                    
+                    
+        </div>
+      </div>
+
+  
+  {% endblock %}
