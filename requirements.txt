@@ -17,4 +17,5 @@ psycopg2==2.9.5
 pysqlite3==0.5.0
 s3transfer==0.6.0
 sqlparse==0.4.3
+stripe==5.0.0
 whitenoise==6.3.0
