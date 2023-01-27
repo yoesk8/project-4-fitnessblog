@@ -119,7 +119,7 @@ TrueFit blog features a user account system whereby users can create a persisten
 
 * The application uses Django pre written authentication to handle user signup and login functionality.
 
-## Create new articles
+### Create new articles
 
 The core feature of TrueFit is the ability to create unique posts for each user, even using HTML if the user wanted to for more flexibility on how his article is displayed. Full CRUD (create, read, update, delete) functionality is implemented for blog posts. This means although a visiting user can only read the already posted articles, signed up users can add, delete and edit their own posts while also being able to comment and like other people's posts.
 
@@ -144,7 +144,11 @@ The core feature of TrueFit is the ability to create unique posts for each user,
 ![View of edit and delete for user's article](media/article_edit_delete_scre.png)
 
 
+### Donation Page
 
+* In order to be able to support the owner of the website without having to resort to paid ads, I've added a donation page that allows logged in users to say thanks with a donation with the help of [Stripe](https://stripe.com/)'s API 
+
+![Donation Page](media/donation_page.png)
 
 
 ***
@@ -211,6 +215,7 @@ The following features could be added in the future, given more development time
 11. [JSHint](https://jshint.com/) - Used to check JavaScript for errors.
 12. [Pycodestyle](https://pypi.org/project/pycodestyle/) - Used to check Python code for errors.
 13. [ChatGPT](https://chat.openai.com/chat) - Used to generate dummy articles and to explain and check code
+14. [Stripe](https://stripe.com/) - Used to accept donations
 
 
 
