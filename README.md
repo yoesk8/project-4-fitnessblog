@@ -150,6 +150,16 @@ The core feature of TrueFit is the ability to create unique posts for each user,
 
 ![Donation Page](media/donation_page.png)
 
+* In order to test the succes payment and insufficient funds scenarios the user can use this cards:
+
+ Success: 4242 4242 4242 4242
+
+Insufficient funds: 4000 0000 0000 9995
+
+For the Month and date any date in the future can be used, and for the 3 digit security code any 3 digit confirmation can be used
+
+(Please note that only this cards are usable at the moment as the Stripe keys being used are test keys not live keys)
+
 
 ***
 
