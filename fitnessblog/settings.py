@@ -33,12 +33,14 @@ STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY', '')
+# SECRET_KEY = os.environ.get('SECRET_KEY', '')
+SECRET_KEY = 'egb8$y8%d0duphx!hz%$g8x551h0%=w0w(r&=v)r+tqb*s@mx='
 
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = 'DEVELOPMENT' in os.environ
+# DEBUG = 'DEVELOPMENT' in os.environ
+DEBUG = True
 
 
 
@@ -57,6 +59,7 @@ INSTALLED_APPS = [
     # Local Apps
     'articles',
     'accounts',
+    'bag',
 
     # Third party apps
     'bootstrap4',
