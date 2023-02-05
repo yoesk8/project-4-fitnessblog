@@ -12,6 +12,7 @@ urlpatterns = [
     path('success/', views.success, name='success'),
     path('error/', views.error, name='error'),
     path('bag/', include('bag.urls')),
+    path('products/', include('products.urls')),
     path('articles/', include('articles.urls')),
     path('accounts/', include('accounts.urls')),
     path('', article_views.article_list, name='home'),

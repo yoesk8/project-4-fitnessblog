@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     'articles',
     'accounts',
     'bag',
+    'products',
 
     # Third party apps
     'bootstrap4',
@@ -186,6 +187,6 @@ if 'USE_AWS' in os.environ:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = ['https://8000-yoesk8-project4fitnessb-602pm453w1p.ws-eu84.gitpod.io']
+CSRF_TRUSTED_ORIGINS = ['https://8000-yoesk8-project4fitnessb-602pm453w1p.ws-eu85.gitpod.io']
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
