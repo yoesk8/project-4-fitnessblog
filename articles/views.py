@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.urls import reverse_lazy, reverse
 from .models import Article, Comment
+from django.db.models import Q
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
@@ -10,7 +11,22 @@ from . import forms
 # View to list all existing articles and order them by date
 def article_list(request):
     articles = Article.objects.all().order_by("date")
-    return render(request, "articles/article_list.html", {'articles': articles})
+    query = None
+    if request.GET:
+        if 'q' in request.GET:
+            query = request.GET['q']
+            if not query:
+                messages.error(request, "You didn't enter any search criteria!")
+                return redirect(reverse('products'))
+            
+            queries = Q(title__icontains=query) | Q(body__icontains=query)
+            articles = articles.filter(queries)
+
+    context = {
+        'articles': articles,
+        'search_term': query,
+    }
+    return render(request, "articles/article_list.html", context)
 
 
 # View to display seleceted article
