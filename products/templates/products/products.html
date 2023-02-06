@@ -15,6 +15,20 @@
 
 {% block content %}
 
+<!-- Category selection area -->
+<div class="dropdown d-flex justify-content-center">
+  <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+     Categories
+  </button>
+  <div class="dropdown-menu " aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="{% url 'products:all_products' %}?category=Training">Training Programs</a>
+    <a class="dropdown-item" href="{% url 'products:all_products' %}?category=Nutrition">Meal Plans</a>
+    <a class="dropdown-item" href="{% url 'products:all_products' %}?category=Other">Other</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="{% url 'products:all_products' %}?category=Training,Nutrition,Other">All</a>
+  </div>
+</div>
+
 {% for product in products %}
 <div class="container py-5">
     <div class="row justify-content-center mb-3">
