@@ -1,12 +1,15 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.decorators import login_required
 
-# Create your views here.
+
+@login_required
 def view_bag(request):
     """ A view that renders the bag contents page """
 
     return render(request, 'bag/bag.html')
 
 
+@login_required
 def add_to_bag(request, item_id):
     """ Add a quantity of the specified product to the shopping bag """
 

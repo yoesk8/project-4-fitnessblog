@@ -32,15 +32,26 @@
       <li class="nav-item mx-2 mt-3 mb-3">
         <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
       </li>
+      {% if user.is_authenticated %}
       <li class="nav-item mx-2 mt-3 mb-3">
         <a class="nav-link" href="{% url 'products:all_products' %}">Training/Diet plans <span class="sr-only">(current)</span></a>
       </li>
-      {% if user.is_authenticated %}
       <li class="nav-item mx-2 mt-3 mb-3">
         <a class="nav-link" href="{% url 'articles:create' %}">Create new article</a>
       </li>
       <li class="nav-item mx-2 mt-3 mb-3">
         <a class="nav-link" href="{% url 'donation' %}">Say Thanks!</a>
+      </li>
+      <li class="nav-item mx-2 mt-3 mb-3">
+        <a class="nav-link" href="{% url 'bag:view_bag' %}"> <i class="fas fa-shopping-bag fa-lg"></i><span class="sr-only">(current)</span>
+          <p class="my-0">
+            {% if total %}
+                ${{ total|floatformat:2 }}
+            {% else %}
+                $0.00
+            {% endif %}
+        </p>
+        </a>
       </li>
     </ul>
       <form class="form-inline my-2 my-lg-0" action="{% url 'accounts:logout' %}" method="post">
@@ -58,18 +69,6 @@
         </button>
       </form>
       {% endif %}
-      <li class="nav-item mx-2 mt-3 mb-3">
-        <a class="nav-link" href="{% url 'bag:view_bag' %}"> <i class="fas fa-shopping-bag fa-lg"></i><span class="sr-only">(current)</span>
-          <p class="my-0">
-            {% if total %}
-                ${{ total|floatformat:2 }}
-            {% else %}
-                $0.00
-            {% endif %}
-        </p>
-        </a>
-
-      </li>
   </div>
 </nav>
 

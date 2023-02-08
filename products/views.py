@@ -1,7 +1,8 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Product, Category
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def all_products(request):
     products = Product.objects.all()
     categories = None
@@ -19,7 +20,7 @@ def all_products(request):
 
     return render(request, 'products/products.html', context)
 
-
+@login_required
 def detail(request, pk):
     product = get_object_or_404(Product, pk=pk)
 
