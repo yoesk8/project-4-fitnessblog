@@ -59,7 +59,7 @@
       </form>
       {% endif %}
       <li class="nav-item mx-2 mt-3 mb-3">
-        <a class="nav-link" href="{% url 'view_bag' %}"> <i class="fas fa-shopping-bag fa-lg"></i><span class="sr-only">(current)</span>
+        <a class="nav-link" href="{% url 'bag:view_bag' %}"> <i class="fas fa-shopping-bag fa-lg"></i><span class="sr-only">(current)</span>
           <p class="my-0">
             {% if total %}
                 ${{ total|floatformat:2 }}
