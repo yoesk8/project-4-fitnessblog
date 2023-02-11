@@ -191,3 +191,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = ['https://8000-yoesk8-project4fitnessb-602pm453w1p.ws-eu86.gitpod.io']
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
+
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
