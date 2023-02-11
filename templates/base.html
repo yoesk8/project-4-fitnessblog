@@ -23,21 +23,75 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 
-    <style>
-      .message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
-}
 
-.custom-toast {
-    overflow: visible;
-}
-
-.toast-capper {
-    height: 2px;
-}
+    <!-- Temporary css for testing -->
+   
+<style>
+    .message-container {
+        position: fixed;
+        top: 72px;
+        right: 15px;
+        z-index: 99999999999;
+    }
+    
+    .custom-toast {
+        overflow: visible;
+    }
+    
+    .toast-capper {
+        height: 2px;
+    }
+    
+ 
+    .arrow-up {
+        width: 0; 
+        height: 0; 
+        border-left: 4px solid transparent;
+        border-right: 4px solid transparent; 
+        border-bottom: 10px solid black;
+        position: absolute;
+        top: -10px;
+        right: 36px;
+    }
+    
+    /* Convenience classes - colors copied from Bootstrap */
+    .arrow-primary {
+        border-bottom-color: #007bff !important;
+    }
+    
+    .arrow-secondary {
+        border-bottom-color: #6c757d !important;
+    }
+    
+    .arrow-success {
+        border-bottom-color: #28a745 !important;
+    }
+    
+    .arrow-danger {
+        border-bottom-color: #dc3545 !important;
+    }
+    
+    .arrow-warning {
+        border-bottom-color: #ffc107 !important;
+    }
+    
+    .arrow-info {
+        border-bottom-color: #17a2b8 !important;
+    }
+    
+    .arrow-light {
+        border-bottom-color: #f8f9fa !important;
+    }
+    
+    .arrow-dark {
+        border-bottom-color: #343a40 !important;
+    }
+    
+    .bag-notification-wrapper {
+        height: 100px;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
     </style>
 
 </head>
@@ -99,9 +153,19 @@
 
 {% if messages %}
 <div class="message-container">
-    {% for message in messages %}
-                {% include 'includes/toasts/toast_error.html' %}
-    {% endfor %}
+  {% for message in messages %}
+  {% with message.level as level %}
+      {% if level == 40 %}
+          {% include 'includes/toasts/toast_error.html' %}
+      {% elif level == 30 %}
+          {% include 'includes/toasts/toast_warning.html' %}
+      {% elif level == 25 %}
+          {% include 'includes/toasts/toast_success.html' %}
+      {% else %}
+          {% include 'includes/toasts/toast_info.html' %}
+      {% endif %}
+  {% endwith %}
+{% endfor %}
 </div>
 {% endif %}
   <div class="article-container">
