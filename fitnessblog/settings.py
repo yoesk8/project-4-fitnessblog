@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'accounts',
     'bag',
     'products',
+    'checkout',
 
     # Third party apps
     'bootstrap4',
