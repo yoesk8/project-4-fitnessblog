@@ -108,9 +108,6 @@
       <li class="nav-item mx-2 mt-3 mb-3">
         <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only"></span></a>
       </li>
-      <li class="nav-item mx-2 mt-3 mb-3">
-        <a class="nav-link" href="{% url 'donation' %}">Say Thanks!</a>
-      </li>
       {% if user.is_authenticated %}
       <li class="nav-item mx-2 mt-3 mb-3">
         <a class="nav-link" href="{% url 'products:all_products' %}">Training/Diet plans <span class="sr-only">(current)</span></a>
@@ -136,6 +133,9 @@
         </button>
       </form>
       {% else %}
+      <li class="nav-item mx-2 mt-3 mb-3">
+        <a class="nav-link" href="{% url 'donation' %}">Say Thanks!</a>
+      </li>
         <form action="{% url 'accounts:login' %}">
         <button class="btn btn-secondary mx-2 mt-3 mb-3">Login
         </button>
