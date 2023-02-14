@@ -19,15 +19,17 @@ import os
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# Stripe API keys
+# Stripe 
 
 # Production keys
-STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
-STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+# STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+# STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+
+STRIPE_CURRENCY = 'usd'
 
 # Test Keys
-# STRIPE_SECRET_KEY = "sk_test_51MU89QG0etn7VxsoOKEy3LR5zodmTGrWnvnm7sSMWHEGSomlk8rF4s35bqgQztJRrqkCnC4ht8w57stYKgWMrNhR00Rqzl08ak"
-# STRIPE_PUBLISHABLE_KEY = "pk_test_51MU89QG0etn7Vxsoho7woZ7qHhsSBphjXkxoqb6NZoWfaglAF9B1U6eeYhJUo4nBSyuoS4IHdOrI2mj6gjjeUo7W00P4Q643zl"
+STRIPE_SECRET_KEY = "sk_test_51MU89QG0etn7VxsoOKEy3LR5zodmTGrWnvnm7sSMWHEGSomlk8rF4s35bqgQztJRrqkCnC4ht8w57stYKgWMrNhR00Rqzl08ak"
+STRIPE_PUBLIC_KEY = "pk_test_51MU89QG0etn7Vxsoho7woZ7qHhsSBphjXkxoqb6NZoWfaglAF9B1U6eeYhJUo4nBSyuoS4IHdOrI2mj6gjjeUo7W00P4Q643zl"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
