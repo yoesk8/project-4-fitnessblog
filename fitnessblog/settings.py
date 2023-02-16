@@ -27,6 +27,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 STRIPE_CURRENCY = 'usd'
 
+# Webhooks
+STRIPE_WH_SECRET = 'whsec_LBhSoQ1UypI6la6keUstTRidwRztst8e'
+
+
 # Test Keys
 STRIPE_SECRET_KEY = "sk_test_51MU89QG0etn7VxsoOKEy3LR5zodmTGrWnvnm7sSMWHEGSomlk8rF4s35bqgQztJRrqkCnC4ht8w57stYKgWMrNhR00Rqzl08ak"
 STRIPE_PUBLIC_KEY = "pk_test_51MU89QG0etn7Vxsoho7woZ7qHhsSBphjXkxoqb6NZoWfaglAF9B1U6eeYhJUo4nBSyuoS4IHdOrI2mj6gjjeUo7W00P4Q643zl"
