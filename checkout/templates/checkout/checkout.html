@@ -61,14 +61,20 @@
                 </div>
             </div>
             <div class="col-12 col-lg-6">
-                <p class="text-muted">Please fill out the form below to complete your order</p>
+                <p class="text-muted">Please fill out the form below to complete your order </p>
                 <form action="{% url 'checkout:view_checkout' %}" method="POST" id="payment-form">
                     {% csrf_token %}
                     <fieldset class="rounded px-3 mb-5">
-                        <legend class="fieldset-label small text-black px-2 w-auto">Details</legend>
+                        <legend class="fieldset-label small text-black px-2 w-auto">Billing Details</legend>
                         {% bootstrap_field order_form.full_name %}
                         {% bootstrap_field order_form.email %}
                         {% bootstrap_field order_form.phone_number %}
+                        {% bootstrap_field order_form.country %}
+                        {% bootstrap_field order_form.town_or_city %}
+                        {% bootstrap_field order_form.street_address1 %}
+                        {% bootstrap_field order_form.postcode %}
+                        {% bootstrap_field order_form.street_address2 %}
+                        {% bootstrap_field order_form.county %}
                     </fieldset>
                     <fieldset class="rounded px-3 mb-5">                        
                         <div class="form-check form-check-inline float-right mr-0">
@@ -82,6 +88,7 @@
                                 </label>
 							{% endif %}
 						</div>
+                        
                     </fieldset>
                     <fieldset class="px-3">
                         <legend class="fieldset-label small text-black px-2 w-auto">Payment</legend>
