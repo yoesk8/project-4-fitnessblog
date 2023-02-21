@@ -22,25 +22,20 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Stripe 
 
 # Production keys
-# STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
-# STRIPE_PUBLISHABLE_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
+STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
+STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 
-STRIPE_CURRENCY = 'usd'
+STRIPE_CURRENCY = 'gbp'
 
 # Webhooks
-STRIPE_WH_SECRET = 'whsec_LBhSoQ1UypI6la6keUstTRidwRztst8e'
+STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET')
 
-
-# Test Keys
-STRIPE_SECRET_KEY = "sk_test_51MU89QG0etn7VxsoOKEy3LR5zodmTGrWnvnm7sSMWHEGSomlk8rF4s35bqgQztJRrqkCnC4ht8w57stYKgWMrNhR00Rqzl08ak"
-STRIPE_PUBLIC_KEY = "pk_test_51MU89QG0etn7Vxsoho7woZ7qHhsSBphjXkxoqb6NZoWfaglAF9B1U6eeYhJUo4nBSyuoS4IHdOrI2mj6gjjeUo7W00P4Q643zl"
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = os.environ.get('SECRET_KEY', '')
-SECRET_KEY = 'egb8$y8%d0duphx!hz%$g8x551h0%=w0w(r&=v)r+tqb*s@mx='
+SECRET_KEY = os.environ.get('SECRET_KEY', '')
 
 
 
@@ -199,8 +194,6 @@ if 'USE_AWS' in os.environ:
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-CSRF_TRUSTED_ORIGINS = ['https://8000-yoesk8-project4fitnessb-602pm453w1p.ws-eu87.gitpod.io']
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 

@@ -27,7 +27,7 @@ def cache_checkout_data(request):
             processed right now. Please try again later.')
         return HttpResponse(content=e, status=400)
 
-def checkout(request):
+def checkout_view(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
@@ -84,7 +84,7 @@ def checkout(request):
         bag = request.session.get('bag', {})
         if not bag:
             messages.error(request, "There's nothing in your bag at the moment")
-            return redirect(reverse('products'))
+            return redirect(reverse('products:all_products'))
 
         current_bag = bag_contents(request)
         total = current_bag['total']

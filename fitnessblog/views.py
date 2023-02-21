@@ -5,7 +5,7 @@ import stripe
 stripe.api_key = settings.STRIPE_SECRET_KEY
 
 def donation(request):
-    key = settings.STRIPE_PUBLISHABLE_KEY
+    key = settings.STRIPE_PUBLIC_KEY
     if request.method == "POST":
         # Get the payment token from the form
         token = request.POST.get("stripeToken")
