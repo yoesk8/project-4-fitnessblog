@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 STRIPE_SECRET_KEY = os.environ.get('STRIPE_SECRET_KEY')
 STRIPE_PUBLIC_KEY = os.environ.get('STRIPE_PUBLISHABLE_KEY')
 
-STRIPE_CURRENCY = 'gbp'
+STRIPE_CURRENCY = 'usd'
 
 # Webhooks
 STRIPE_WH_SECRET = os.environ.get('STRIPE_WH_SECRET')
