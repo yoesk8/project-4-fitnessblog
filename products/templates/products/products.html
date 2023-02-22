@@ -30,14 +30,16 @@
 </div>
 
 {% for product in products %}
-<div class="card mb-3">
+<div class="card mb-3 mx-auto" style="max-width: 60%;">
   <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap">
   <div class="card-body">
     <h5 class="card-title">{{ product.name}}</h5>
     <p class="card-text text-truncate mb-4 mb-md-0">
       {{ product.description}}
     </p>
-    <a href="{% url 'products:detail' product.id %}" class="btn btn-primary btn-sm" type="button">Details</a>
+    <hr>
+    <a href="{% url 'products:detail' product.id %}" class="btn btn-primary btn-sm" type="button">Tell me more!</a>
+    <hr>
     <p class="card-text"><small class="text-muted">{{ product.category}}</small></p>
   </div>
 </div>
