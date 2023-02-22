@@ -21,7 +21,8 @@
                 <hr>
                 <h2 class="logo-font mb-4">Thank You</h2>
                 <hr>
-                <p class="text-black">Your order information is below. A confirmation email will be sent to <strong>{{ order.email }}</strong>.</p>
+                <p class="text-black">Your order information is below. A confirmation email with the next steps will be sent to: <strong>{{ order.email }}</strong>.</p>
+                <p class="text-black"> <strong>REMEMBER!</strong> All of our digital products are custom made, so you will have to give your body stats (Weight, height,etc) in order to get your own tailor made product</p>
             </div>
         </div>
 
@@ -101,11 +102,11 @@
 
         <div class="row">
 			<div class="col-12 col-lg-7 text-right">
-				<a href="{% url 'products:all_products' %}" class="btn btn-black rounded-0 my-2">
+				<a href="{% url 'articles' %}" class="btn btn-black rounded-0 my-2">
 					<span class="icon mr-2">
-						<i class="fas fa-gifts"></i>
+						<i class="fas fa-house"></i>
 					</span>
-					<span class="text-uppercase">Now check out the rest of our product range!</span>
+					<span class="text-uppercase">Go back to the home page to continue reading some awesome articles!</span>
 				</a>
 			</div>
 		</div>
