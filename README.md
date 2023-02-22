@@ -9,6 +9,7 @@ The purpose of this application is to help users find useful information on fitn
 
 * The Home page for first time users has an attractive image welcoming the user and with a brief explanation of what the blog is
 * All users can create edit or delete their own articles, like and comment on other perople's articles if logged in.
+* All users with an account have acces to an e-commerce store where they can buy training programs and meal plans
 * If the first time user doesn't want to sign-up he can still read the articles
 
 
@@ -29,6 +30,7 @@ The purpose of this application is to help users find useful information on fitn
 * As a returning user, I want to be able to quickly access the features I’m interested in.
 * As a returning user, I want to be able to leave comments on articles to share my own experiences and provide feedback to the author.
 * As a returning user, I want to be able to like or upvote articles that I find helpful or informative, so that other users can easily see which articles are most valuable.
+* As a returning user I want to be able to purchase custom made training / nutrition programs to help me with my fitness goals
 
 
 
@@ -45,6 +47,8 @@ The site uses the Bootstrap framework. I used a simple colour pallete that makes
 * Colours are used consistently in association with a particular type of task:
 
 * Dark grey is used on the login / signup buttons.
+
+* Other buttons in the site use the same black color as the logo
 
 * Bootstrap's light blue (Primary) is used on the Read article button / and for the articles with the category "Training".
 
@@ -121,7 +125,7 @@ TrueFit blog features a user account system whereby users can create a persisten
 
 ### Create new articles
 
-The core feature of TrueFit is the ability to create unique posts for each user, even using HTML if the user wanted to for more flexibility on how his article is displayed. Full CRUD (create, read, update, delete) functionality is implemented for blog posts. This means although a visiting user can only read the already posted articles, signed up users can add, delete and edit their own posts while also being able to comment and like other people's posts.
+One of the two core feature of TrueFit is the ability to create unique posts for each user, even using HTML if the user wanted to for more flexibility on how his article is displayed. Full CRUD (create, read, update, delete) functionality is implemented for blog posts. This means although a visiting user can only read the already posted articles, signed up users can add, delete and edit their own posts while also being able to comment and like other people's posts.
 
 * New blog posts (articles) are added by completing a form, which is located on the main navbar but only for logged in users.
 
@@ -130,6 +134,10 @@ The core feature of TrueFit is the ability to create unique posts for each user,
 * All articles are listed on the home page and the category of each article is color coded.
 
 ![List of articles](media/article_list.png)
+
+* Additionally, all users, whether they have an account or not can search for specific topics with the searchbar at the top of the page
+
+![Search bar](media/search_bar.png)
 
 
 * When editing an article, the form is prepopulated with the current values of that article.
@@ -146,7 +154,7 @@ The core feature of TrueFit is the ability to create unique posts for each user,
 
 ### Donation Page
 
-* In order to be able to support the owner of the website without having to resort to paid ads, I've added a donation page that allows logged in users to say thanks with a donation with the help of [Stripe](https://stripe.com/)'s API 
+* In order to be able to support the owner of the website without having to resort to paid ads, I've added a donation page that allows users who haven't signed up to the page to say thanks with a donation with the help of [Stripe](https://stripe.com/)'s API 
 
 ![Donation Page](media/donation_page.png)
 
@@ -161,13 +169,41 @@ For the Month and date any date in the future can be used, and for the 3 digit s
 (Please note that only this cards are usable at the moment as the Stripe keys being used are test keys not live keys)
 
 
+## E-Commerce store
+
+The second core feature of TrueFit is the e-commerce store available for signed-up users, where they can buy training programs and meal plans from the owner of the site. This works with [Stripe](https://stripe.com/)'s API .
+
+* Customers can see a list of the available digital products in the training/diet plans section of the site.
+
+![Digital products list](media/products_list.png)
+
+* Alternatively if the customer wishes to filter the products based on category they can use the dropdown menu at the top
+
+### Shopping bag
+
+The shopping bag allows to see the user to see the total amount of the purchase before proceeding to checkout and it also has the functionality to update and remove the quantity of products
+
+![Shopping bag](media/shopping_bag.png)
+
+### Checkout
+
+The checkout page has a form that collects the necessary data from the customer to create a payment intent with Stripe's API, it also uses Stripe's data validation to prevent the user from submitting the incorrec data which would prevent the order from submitting
+
+![Checkout page](media/checkout.png)
+
+* A very important feature of the checkout process is that TrueFit uses webhooks to protects the owner of the site of having payments going through without orders being submitted to the database. If the buyer closes the window while the order is still being processed, Stripe will save a copy of the order and update the database accordingly later on.
+
+
+
+
+---
 ***
 
 ## Database Design
 
-TrueFit uses a SQL database. Data is divided into three collections, with the following schema:
+TrueFit uses a SQL database. Data is divided into seven collections, with the following schema:
 
-![Datbase diagram](media/database_schema.png)
+![Datbase diagram](media/updated_data_schema.png)
 
 ***
 
@@ -184,10 +220,7 @@ The following features could be added in the future, given more development time
 
 * The ability for all users to filter the articles by category.
 
-
-### 3. Search Articles
-
-* The ability to search articles that contain a word or words in either the title or body 
+ 
 
 ### 4. Chat functionality
 
@@ -283,6 +316,13 @@ This one was a tough one to spot as I was sure that I had followed step by step 
 > I have to give credit to the amazing CodeInstitute Slack comunity, which guided me in the right direction, it turns out that the url configuration is specific to the Region where the bucket is, and unlike the US region where the url just ends in ".s3.amazonaws.com" for the EU region the region has to also be added to the url, like the image shows below
 
 ![resolved](media/aws_region_bug.png)
+
+
+* ## Webhooks breaking the order submission
+
+As a result of changing the STRIPE_CURRENCY variable at an early stage of the process, the deployed site would get stuck on the loading overlay (Check image) and the order would never be sibmitted to the database, it was very challenging to debug as there was no error to display or console to check as it was only happening on the deplyed site
+
+![loading](media/loading_overlay.png)
 
 
 ## Performance testing
