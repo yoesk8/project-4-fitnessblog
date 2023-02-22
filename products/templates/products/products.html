@@ -30,13 +30,24 @@
 </div>
 
 {% for product in products %}
-<div class="container py-5">
+<div class="card mb-3">
+  <img class="card-img-top" src="{{ product.image.url }}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{ product.name}}</h5>
+    <p class="card-text text-truncate mb-4 mb-md-0">
+      {{ product.description}}
+    </p>
+    <a href="{% url 'products:detail' product.id %}" class="btn btn-primary btn-sm" type="button">Details</a>
+    <p class="card-text"><small class="text-muted">{{ product.category}}</small></p>
+  </div>
+</div>
+<!-- <div class="container py-5">
     <div class="row justify-content-center mb-3">
       <div class="col-md-12 col-xl-10">
         <div class="card shadow-0 border rounded-3">
           <div class="card-body">
             <div class="row">
-              <div class="col-md-12 col-lg-3 col-xl-3 col-12 border-sm-start-none border-start">
+              <div class="col-md-12 col-lg-3 col-xl-3 col-12 mb-4 mb-lg-0">
                 <div class="bg-image hover-zoom ripple rounded ripple-surface">
                   <img src="{{ product.image.url }}"
                     class="w-100" />
@@ -76,7 +87,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 {% endfor %}
     <!-- <div class="pb-6 grid grid-cols-4 gap-4 bg-gray-100">
 
