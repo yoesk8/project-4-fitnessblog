@@ -6,7 +6,7 @@
     <form action="{% url 'articles:create' %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form }}
-        <button class="btn btn-secondary mt-3" type="submit">Create article</button>
+        <button class="btn btn-black mt-3" type="submit">Create article</button>
     </form>
 </div>
 {% endblock %}
