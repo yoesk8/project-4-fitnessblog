@@ -28,6 +28,8 @@
     <a class="dropdown-item" href="{% url 'products:all_products' %}?category=Training,Nutrition,Other">All</a>
   </div>
 </div>
+<br>
+<br>
 
 {% for product in products %}
 <div class="card mb-3 mx-auto" style="max-width: 60%;">
@@ -40,9 +42,10 @@
     <hr>
     <a href="{% url 'products:detail' product.id %}" class="btn btn-primary btn-sm" type="button">Tell me more!</a>
     <hr>
-    <p class="card-text"><small class="text-muted">{{ product.category}}</small></p>
-  </div>
+    <h4 class="mb-1 me-1">${{ product.price }}</h4>  </div>
 </div>
+<br>
+<br>
 <!-- <div class="container py-5">
     <div class="row justify-content-center mb-3">
       <div class="col-md-12 col-xl-10">
